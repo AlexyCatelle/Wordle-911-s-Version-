@@ -4,8 +4,8 @@ export function showMessage(text, options = { reload: false, closable: false, im
     let content = '';
 
     if (options.image) {
-        content += `<img src="${options.image}" alt="Message" class="message-image">`;
-    }
+        content += `<img src="${options.image}" alt="Message" class="message-image" aria-hidden="true">`;
+    };
 
     content += `<p>${text}</p>`;
 
@@ -13,7 +13,7 @@ export function showMessage(text, options = { reload: false, closable: false, im
         content += `<button id="restart-btn">Rejouer</button>`;
     } else if (options.closable) {
         content += `<button id="close-btn" class="close-button">&times;</button>`;
-    }
+    };
 
     container.innerHTML = content;
     container.style.display = 'block';
