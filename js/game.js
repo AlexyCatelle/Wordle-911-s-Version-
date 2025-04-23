@@ -1,5 +1,10 @@
 import { state } from './state.js';
 import { isLetter, addLetter, removeLetter } from './letter.js';
+import { showMessage } from './message.js';
+
+function restartGame() {
+    location.reload();
+};
 
 export function updateGrid() {
     for (let i = 0; i < state.grid.length; i++) {
@@ -19,7 +24,10 @@ export function handleKey(key) {
                 state.currentRow++;
                 state.currentCol = 0;
             } else {
-                alert('Mot non valide.');
+                showMessage('Mot non valide.', {
+                    closable: true,
+                    image: '/img/invalideMessage.jpg'
+                });
             };
         };
     }
@@ -59,15 +67,21 @@ function revealWord(guess) {
 
     if (isWinner) {
         setTimeout(() => {
-            alert('Félicitations !');
-            location.reload();
+            showMessage('Félicitations !', {
+                reload: true,
+                image: '/img/victoryMessage.jpg'
+            });
         }, 100);
     }
     else if (isGameOver) {
         setTimeout(() => {
-            alert(`Défaite ! Le mot était ${state.secret}.`);
-            location.reload();
+            showMessage(`Défaite ! Le mot était ${state.secret}.`, {
+                reload: true,
+                image: '/img/failMessage.webp'
+            });
         }, 100);
     };
 };
+
+
 
