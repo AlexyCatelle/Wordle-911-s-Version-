@@ -1,8 +1,14 @@
-export function showMessage(text, options = { reload: false, closable: false }) {
+export function showMessage(text, options = { reload: false, closable: false, image: null }) {
     const container = document.getElementById('message-container');
-    
-    let content = `<p>${text}</p>`;
-    
+
+    let content = '';
+
+    if (options.image) {
+        content += `<img src="${options.image}" alt="Message" class="message-image">`;
+    }
+
+    content += `<p>${text}</p>`;
+
     if (options.reload) {
         content += `<button id="restart-btn">Rejouer</button>`;
     } else if (options.closable) {

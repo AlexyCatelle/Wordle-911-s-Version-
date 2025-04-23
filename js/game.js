@@ -24,7 +24,10 @@ export function handleKey(key) {
                 state.currentRow++;
                 state.currentCol = 0;
             } else {
-                showMessage('Mot non valide.', { closable: true });
+                showMessage('Mot non valide.', {
+                    closable: true,
+                    image: '/img/invalideMessage.jpg'
+                });
             };
         };
     }
@@ -64,12 +67,18 @@ function revealWord(guess) {
 
     if (isWinner) {
         setTimeout(() => {
-            showMessage('Félicitations !', { reload: true });
+            showMessage('Félicitations !', {
+                reload: true,
+                image: '/img/victoryMessage.jpg'
+            });
         }, 100);
     }
     else if (isGameOver) {
         setTimeout(() => {
-            showMessage(`Défaite ! Le mot était : ${state.secret}`, { reload: true });
+            showMessage(`Défaite ! Le mot était ${state.secret}.`, {
+                reload: true,
+                image: '/img/failMessage.webp'
+            });
         }, 100);
     };
 };

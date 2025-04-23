@@ -132,7 +132,7 @@ footer a:hover {
 
   #message-container {
     position: fixed;
-    top: 30%;
+    top: 20%;
     left: 50%;
     transform: translateX(-50%);
     background-color: var(--default);
@@ -173,6 +173,12 @@ footer a:hover {
     color: var(--light-color);
     cursor: pointer;
     width: 90%;
+  }
+
+  .message-image {
+    width: 50rem;
+    height: auto;
+    margin-bottom: 1rem;
   }
   
   
